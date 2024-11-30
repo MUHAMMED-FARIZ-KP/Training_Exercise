@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <link rel="stylesheet" href="signup.css"> 
+</head>
+<body>
+    <div class="form-container">
+        <div class="form-header">
+            Register Here...
+        </div>
+        <form class="form-body">
+            <div class="form-group row">
+                <div class="input-field">
+                    <label>First Name:</label>
+                    <input type="text" placeholder="Robert" required>
+                </div>
+                <div class="input-field">
+                    <label>Last Name:</label>
+                    <input type="text" placeholder="John" required>
+                </div>
+            </div>   
+            <div class="form-group row">
+                <div class="input-field">
+                    <label>Username:</label>
+                    <input type="text" placeholder="" required>
+                    
+                </div>
+               
+            </div> 
+            <div class="form-group row">
+                <div class="input-field">
+                    <label>Password:</label>
+                    <input type="text" required>    
+                </div>
+                <div class="input-field">
+                    <label>Confirm Password:</label>
+                    <input type="password" required>
+                    
+                </div>
+                
+            </div>      
+            <div class="form-group row">
+                <div class="input-field">
+                    <label>Date of Birth:</label>
+                    <input type="date" required>    
+                </div>
+                <div class="input-field">
+                    <label>Age:</label>
+                    <input type="number" required>
+                    
+                </div>
+                
+            </div>
+            <div class="form-group row">
+                <div class="input-field">
+                    <label>Gender:</label>
+                    <div class="radio-options">
+                        <label><input type="radio" name="gender" value="Male" required> Male</label>
+                        <label><input type="radio" name="gender" value="Female"> Female</label>
+                        <label><input type="radio" name="gender" value="Other"> Other</label>
+                        <label><input type="radio" name="gender" value="Prefer not to say"> Prefer not to say</label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="input-field">
+                    <label>Phone:</label>
+                    <input type="number" required>    
+                </div>
+                <div class="input-field">
+                    <label>Email:</label>
+                    <input type="email" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="input-field">
+                    <label>Address:</label>
+                    <textarea></textarea>
+                </div>
+               
+            </div>
+            <div class="form-group row">
+                <div class="input-field">
+                    <label for="state">State:</label>
+                    <select id="state" required>
+                        <option value="">-- Select State --</option>
+                        <option value="kerala">Kerala</option>
+                        <option value="karnataka">Karnataka</option>
+                        <option value="tamilnadu">Tamil Nadu</option>
+                    </select>
+                </div>
+                <div class="input-field">
+                    <label for="city">City:</label>
+                    <select id="city" required>
+                        <option value="">-- Select City --</option>
+                        
+                        <optgroup label="Kerala" data-state="kerala">
+                            <option value="kochi">Kochi</option>
+                            <option value="trivandrum">Trivandrum</option>
+                            <option value="calicut">Calicut</option>
+                          </optgroup>
+                          <optgroup label="Karnataka" data-state="karnataka">
+                            <option value="bangalore">Bangalore</option>
+                            <option value="mysore">Mysore</option>
+                            <option value="mangalore">Mangalore</option>
+                          </optgroup>
+                          <optgroup label="Tamil Nadu" data-state="tamilnadu">
+                            <option value="chennai">Chennai</option>
+                            <option value="coimbatore">Coimbatore</option>
+                            <option value="madurai">Madurai</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="login-btn">Register</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
