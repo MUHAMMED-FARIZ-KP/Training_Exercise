@@ -29,10 +29,14 @@ header {
 }
 
 h2{
+    text-align: left;
+    color: #fff;
     background: linear-gradient(to right, #2c3e50, #3498db);
 }
 .side-head{
     background: linear-gradient(to right, #2c3e50, #3498db);
+    color: #fff;
+    
 }
 
 .navbar nav ul {
@@ -64,7 +68,7 @@ main {
     max-width: 800px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    text-align: center;
+    text-align: left;
 }
 main p{
     text-align: left;
