@@ -99,7 +99,7 @@ input {
     border-radius: 5px;
     font-size: 16px;
 }
-input[type="email"]:valid {
+/* input[type="email"]:valid {
     border-color: green;
     border-width: 2px;
 }
@@ -117,7 +117,7 @@ input[type="password"]:valid {
 input[type="password"]:invalid {
     border-color: #007bff;
     border-width: 2px;
-}
+} */
 
 input:focus {
     outline: none;

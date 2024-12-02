@@ -31,25 +31,29 @@
             <div class="form-group row">
                 <div class="input-field">
                     <label>First name:</label>
-                    <input type="text" placeholder="Robert" minlength="3" required>
+                    <input id="firstName" onfocusout="validateFirstName()" type="text" placeholder="Robert" required>
+                    <span id="firstNameError" class="error-message"></span>
+                    
                 </div>
                 <div class="input-field">
                     <label>Last name:</label>
-                    <input type="text" placeholder="John" minlength="3" required>
+                    <input id="lastName" onfocusout="validateLastName()" type="text" placeholder="John" required>
+                    <span id="lastNameError" class="error-message"></span>
                 </div>
             </div>   
             <div class="form-group row">
                 <div class="input-field">
                     <label>User name:</label>
-                    <input type="text" placeholder="" minlength="3" required>
-                    
+                    <input type="text" id="username" placeholder="" onfocusout="validateUsername()" required>
+                    <span id="usernameError" class="error-message"></span>
                 </div>
                
             </div> 
             <div class="form-group row">
                 <div class="input-field">
                     <label>Password:</label>
-                    <input type="password" minlength="8" required>    
+                    <input type="password" id="password" minlength="8" required>    
+                    <span id="passwordError" class="error-message"></span>
                 </div>
                 <div class="input-field">
                     <label>Confirm password:</label>
@@ -135,6 +139,6 @@
             </div>
         </form>
     </div>
-    
+    <script src="signup.js"></script>
 </body>
 </html>
