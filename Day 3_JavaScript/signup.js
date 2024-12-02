@@ -73,6 +73,33 @@ function validateConfirmPassword() {
     }
 }
 
+function validatePhone() {
+    const phoneInput = document.getElementById('phone');
+    const phoneError = document.getElementById('phoneError');
+   
+    if (phoneInput.value.length < 10) {
+        phoneError.style.display = 'block';
+        phoneError.textContent = 'phone number must be at least 10 digits.';
+        phoneInput.style.borderColor = 'red';
+    } else {
+        phoneError.style.display = 'none';
+        phoneInput.style.borderColor = 'green';
+    }
+}
+function validateEmail() {
+    const emailInput = document.getElementById('email');
+    const emailError = document.getElementById('emailError');
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailRegex.test(emailInput.value.trim())) {
+        emailError.style.display = 'block';
+        emailError.textContent = 'Please enter a valid email address.';
+        emailInput.style.borderColor = 'red';
+    } else {
+        emailError.style.display = 'none';
+        emailInput.style.borderColor = 'green';
+    }
+}
 
 document.getElementById("username").addEventListener("input", (e) => {
     e.target.style.borderColor = e.target.value.length >= 3 ? "green" : "red";
@@ -104,4 +131,10 @@ document.getElementById('dob').addEventListener('change', function () {
 
     document.getElementById('age').value = age;
 });
-
+document.getElementById("phone").addEventListener("input", (e) => {
+    e.target.style.borderColor = e.target.value.length == 10 ? "green" : "red";
+});
+document.getElementById("email").addEventListener("input", (e) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    e.target.style.borderColor = emailRegex.test(e.target.value) ? "green" : "red";
+});

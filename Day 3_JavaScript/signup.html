@@ -89,11 +89,13 @@
             <div class="form-group row">
                 <div class="input-field">
                     <label>Phone:</label>
-                    <input type="number"  required>    
+                    <input type="number" id="phone" onfocusout="validatePhone()" required>    
+                    <span id="phoneError" class="error-message"></span>
                 </div>
                 <div class="input-field">
                     <label>Email:</label>
-                    <input type="email" required>
+                    <input type="text" id="email" onfocusout="validateEmail()" placeholder="abc@gmail.com">
+                    <span id="emailError" class="error-message"></span>
                 </div>
             </div>
             <div class="form-group row">
