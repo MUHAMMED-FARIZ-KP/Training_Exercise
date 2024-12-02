@@ -41,6 +41,39 @@ function validateLastName(){
     }
 }
 
+function validatePassword() {
+    const passwordInput = document.getElementById('password');
+    const passwordError = document.getElementById('passwordError');
+   
+    if (passwordInput.value.length < 8) {
+        passwordError.style.display = 'block';
+        passwordError.textContent = 'Password must be at least 8 characters.';
+        passwordInput.style.borderColor = 'red';
+    } else {
+        passwordError.style.display = 'none';
+        passwordInput.style.borderColor = 'green';
+    }
+}
+function validateConfirmPassword() {
+    const passwordInput = document.getElementById('password');
+    const confirmPasswordInput = document.getElementById('confirmPassword');
+    const confirmPasswordError = document.getElementById('confirmPasswordError');
+
+    if (confirmPasswordInput.value.length < 8) {
+        confirmPasswordError.style.display = 'block';
+        confirmPasswordError.textContent = 'Password must be at least 8 characters.';
+        confirmPasswordInput.style.borderColor = 'red';
+    } else if (confirmPasswordInput.value !== passwordInput.value) {
+        confirmPasswordError.style.display = 'block';
+        confirmPasswordError.textContent = 'Passwords do not match.';
+        confirmPasswordInput.style.borderColor = 'red';
+    } else {
+        confirmPasswordError.style.display = 'none';
+        confirmPasswordInput.style.borderColor = 'green';
+    }
+}
+
+
 document.getElementById("username").addEventListener("input", (e) => {
     e.target.style.borderColor = e.target.value.length >= 3 ? "green" : "red";
 });
@@ -50,3 +83,25 @@ document.getElementById("firstName").addEventListener("input", (e) => {
 document.getElementById("lastName").addEventListener("input", (e) => {
     e.target.style.borderColor = e.target.value.length >= 3 ? "green" : "red";
 });
+
+document.getElementById("password").addEventListener("input", (e) => {
+    e.target.style.borderColor = e.target.value.length >= 8 ? "green" : "red";
+});
+document.getElementById("confirmPassword").addEventListener("input", (e) => {
+    e.target.style.borderColor = e.target.value.length >= 8 ? "green" : "red";
+});
+
+document.getElementById('dob').addEventListener('change', function () {
+    const dob = new Date(this.value);
+    const today = new Date();
+    let age = today.getFullYear() - dob.getFullYear();
+    const m = today.getMonth() - dob.getMonth();
+
+    
+    if (m < 0 || (m === 0 && today.getDate() < dob.getDate())) {
+        age--;
+    }
+
+    document.getElementById('age').value = age;
+});
+

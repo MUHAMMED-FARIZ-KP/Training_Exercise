@@ -52,12 +52,13 @@
             <div class="form-group row">
                 <div class="input-field">
                     <label>Password:</label>
-                    <input type="password" id="password" minlength="8" required>    
+                    <input type="password" onfocusout="validatePassword()" id="password"  required>    
                     <span id="passwordError" class="error-message"></span>
                 </div>
                 <div class="input-field">
                     <label>Confirm password:</label>
-                    <input type="password" minlength="8" required>
+                    <input type="password" onfocusout="validateConfirmPassword()" id="confirmPassword" required>
+                    <span id="confirmPasswordError" class="error-message"></span>
                     
                 </div>
                 
@@ -65,11 +66,11 @@
             <div class="form-group row">
                 <div class="input-field">
                     <label>Date of birth:</label>
-                    <input type="date" required>    
+                    <input type="date" id="dob" required>    
                 </div>
                 <div class="input-field">
                     <label>Age:</label>
-                    <input type="number" required>
+                    <input type="number" id="age" readonly required>
                     
                 </div>
                 
