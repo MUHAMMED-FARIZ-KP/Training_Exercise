@@ -13,6 +13,7 @@ function validateEmail() {
     }
 }
 
+
 function validatePassword() {
     const passwordInput = document.getElementById('password');
     const passwordError = document.getElementById('passwordError');
@@ -30,14 +31,10 @@ function validatePassword() {
 
 var successMessage=document.getElementById('successMessage');
 document.getElementById("loginForm").addEventListener("submit", function (e) {
-    // Prevent form submission
     e.preventDefault();
-
-    // Perform validation
     validateEmail();
     validatePassword();
 
-    // Check if there are any validation errors
     const emailError = document.getElementById("emailError").textContent;
     const passwordError = document.getElementById("passwordError").textContent;
 
@@ -50,7 +47,6 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
         alert("Form contains invalid inputs. Please fix them before submitting.");
     }
 });
-
 
 
 document.getElementById("email").addEventListener("input", (e) => {

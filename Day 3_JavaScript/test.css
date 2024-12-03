@@ -1,0 +1,84 @@
+@media (min-width: 1024px) and (min-height: 768px) {
+    
+    main {
+        max-width: 900px;
+        padding: 30px;
+        font-size: 1.2rem;
+    }
+
+    form input,
+    form textarea {
+        font-size: 1.1rem;
+        padding: 12px;
+    }
+}
+
+
+@media (max-width: 1024px) and (min-width: 768px) and (min-height: 600px) and (max-height: 768px) {
+    main {
+        max-width: 700px;
+        padding: 20px;
+        font-size: 1rem;
+    }
+
+    form input,
+    form textarea {
+        font-size: 1rem;
+        padding: 10px;
+    }
+}
+
+
+@media (max-width: 768px) and (min-width: 480px) and (min-height: 400px) and (max-height: 600px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        
+    }
+    .navbar nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    main {
+        max-width: 90%;
+        padding: 15px;
+        font-size: 0.9rem;
+    }
+
+    form input,
+    form textarea {
+        font-size: 0.9rem;
+        padding: 8px;
+    }
+}
+
+@media (max-width: 480px) and (max-height: 400px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        
+    }
+
+    .navbar nav ul {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    main {
+        max-width: 100%;
+        padding: 10px;
+        font-size: 0.8rem;
+    }
+
+    form input,
+    form textarea {
+        font-size: 0.8rem;
+        padding: 6px;
+    }
+
+    form button {
+        font-size: 0.8rem;
+        padding: 8px;
+    }
+}

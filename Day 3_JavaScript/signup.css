@@ -16,6 +16,12 @@ header {
     justify-content: space-between;
     align-items: center;
 }
+.signup-container {
+    margin-bottom: 4px auto; 
+    text-align: center; 
+    color:  rgb(12, 9, 9);
+    font-size: 14px; 
+}
 
 .logo {
     width: 50px;
