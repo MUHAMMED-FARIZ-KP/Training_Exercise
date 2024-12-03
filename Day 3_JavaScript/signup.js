@@ -5,7 +5,13 @@ function validateUsername(){
         usernameError.style.display = 'block';
         usernameError.textContent = 'Username must be at least 3 characters.';
         usernameInput.style.borderColor = 'red';
+        return false;
 
+    }
+    else {
+        usernameError.style.display = 'none';
+        usernameInput.style.borderColor = 'green';
+        return true;
     }
 }
 
@@ -18,11 +24,13 @@ function validateFirstName(){
         firstNameError.style.display = 'block';
         firstNameError.textContent = 'First name must be at least 3 characters.';
         firstNameInput.style.borderColor = 'red';
+        return false;
 
     }
     else {
     firstNameError.style.display = 'none';
     firstNameInput.style.borderColor = 'green';
+    return true;
     }
 }
 
@@ -33,11 +41,13 @@ function validateLastName(){
         lastNameError.style.display = 'block';
         lastNameError.textContent = 'Last name must be at least 3 characters.';
         lastNameInput.style.borderColor = 'red';
+        return false;
 
     }
     else {
         lastNameError.style.display = 'none';
         lastNameInput.style.borderColor = 'green';
+        return true;
     }
 }
 
@@ -49,9 +59,11 @@ function validatePassword() {
         passwordError.style.display = 'block';
         passwordError.textContent = 'Password must be at least 8 characters.';
         passwordInput.style.borderColor = 'red';
+        return false;
     } else {
         passwordError.style.display = 'none';
         passwordInput.style.borderColor = 'green';
+        return true;
     }
 }
 function validateConfirmPassword() {
@@ -63,13 +75,16 @@ function validateConfirmPassword() {
         confirmPasswordError.style.display = 'block';
         confirmPasswordError.textContent = 'Password must be at least 8 characters.';
         confirmPasswordInput.style.borderColor = 'red';
+        return false;
     } else if (confirmPasswordInput.value !== passwordInput.value) {
         confirmPasswordError.style.display = 'block';
         confirmPasswordError.textContent = 'Passwords do not match.';
         confirmPasswordInput.style.borderColor = 'red';
+        return false;
     } else {
         confirmPasswordError.style.display = 'none';
         confirmPasswordInput.style.borderColor = 'green';
+        return true;
     }
 }
 
@@ -81,9 +96,11 @@ function validatePhone() {
         phoneError.style.display = 'block';
         phoneError.textContent = 'phone number must be at least 10 digits.';
         phoneInput.style.borderColor = 'red';
+        return false;
     } else {
         phoneError.style.display = 'none';
         phoneInput.style.borderColor = 'green';
+        return true;
     }
 }
 function validateEmail() {
@@ -95,21 +112,100 @@ function validateEmail() {
         emailError.style.display = 'block';
         emailError.textContent = 'Please enter a valid email address.';
         emailInput.style.borderColor = 'red';
+        return false;
     } else {
         emailError.style.display = 'none';
         emailInput.style.borderColor = 'green';
+        return true;
     }
 }
+function validateAddress(){
+    const addressInput = document.getElementById('address');
+    const addressError = document.getElementById('addressError');
+    if(addressInput.value.length == 0){
 
-document.getElementById("username").addEventListener("input", (e) => {
-    e.target.style.borderColor = e.target.value.length >= 3 ? "green" : "red";
+        addressError.style.display = 'block';
+        addressError.textContent = 'Address cannot be empty';
+        addressInput.style.borderColor = 'red';
+        return false;
+    } else {
+        addressError.style.display = 'none';
+        addressInput.style.borderColor = 'green';
+        return true;
+    
+    }
+
+}
+
+document.getElementById("form-body").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    // Perform validation
+    const isUsernameValid = validateUsername();
+    const isFirstNameValid = validateFirstName();
+    const isLastNameValid = validateLastName();
+    const isPasswordValid = validatePassword();
+    const isConfirmPasswordValid = validateConfirmPassword();
+    const isPhoneValid = validatePhone();
+    const isEmailValid = validateEmail();
+    const isAddressValid = validateAddress();
+
+
+    if (
+        isUsernameValid &&
+        isFirstNameValid &&
+        isLastNameValid &&
+        isPasswordValid &&
+        isConfirmPasswordValid &&
+        isPhoneValid &&
+        isEmailValid &&
+        isAddressValid
+    ) {
+        const successMessage = document.getElementById('successMessage');
+        successMessage.textContent = 'Form Submitted Successfully.';
+        successMessage.style.display = 'block';
+        successMessage.style.color = 'green';
+    } else {
+        alert("Form contains invalid inputs. Please fix them before submitting.");
+    }
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+    const stateDropdown = document.getElementById("state");
+    const cityDropdown = document.getElementById("city");
+
+    const citiesByState = {
+        kerala: ["Kochi", "Trivandrum", "Calicut"],
+        karnataka: ["Bangalore", "Mysore", "Mangalore"],
+        tamilnadu: ["Chennai", "Coimbatore", "Madurai"]
+    };
+
+    // Event listener for state dropdown
+    stateDropdown.addEventListener("change", () => {
+        const selectedState = stateDropdown.value;
+        cityDropdown.innerHTML = `<option value="">-- Select City --</option>`; // Clear previous options
+
+        if (selectedState && citiesByState[selectedState]) {
+            citiesByState[selectedState].forEach(city => {
+                const option = document.createElement("option");
+                option.value = city.toLowerCase();
+                option.textContent = city;
+                cityDropdown.appendChild(option);
+            });
+        }
+    });
+});
+
 document.getElementById("firstName").addEventListener("input", (e) => {
     e.target.style.borderColor = e.target.value.length >= 3 ? "green" : "red";
 });
 document.getElementById("lastName").addEventListener("input", (e) => {
     e.target.style.borderColor = e.target.value.length >= 3 ? "green" : "red";
 });
+document.getElementById("username").addEventListener("input", (e) => {
+    e.target.style.borderColor = e.target.value.length >= 3 ? "green" : "red";
+});
+
 
 document.getElementById("password").addEventListener("input", (e) => {
     e.target.style.borderColor = e.target.value.length >= 8 ? "green" : "red";
@@ -137,4 +233,14 @@ document.getElementById("phone").addEventListener("input", (e) => {
 document.getElementById("email").addEventListener("input", (e) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     e.target.style.borderColor = emailRegex.test(e.target.value) ? "green" : "red";
+});
+
+
+const form = document.querySelector('.form-body');
+form.addEventListener('submit', (e) => {
+  
+    if (document.querySelector('.error-message:visible')) {
+        e.preventDefault();
+        alert('Please fix all errors before submitting the form.');
+    }
 });

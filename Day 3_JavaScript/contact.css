@@ -12,11 +12,17 @@ header {
 }
 
 .navbar {
+    
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+    display: none; 
+}
 .logo {
     width: 50px;
     height: auto;
@@ -60,6 +66,7 @@ iframe{
     border-radius: 10px;
 }
 .sidebar {
+    margin-top: 60px;
     flex: 1;
     background: linear-gradient(45deg, #3498db, #2ecc71);
     padding: 20px;
@@ -102,6 +109,7 @@ iframe{
 }
 
 main {
+    margin-top: 60px;
     flex: 2;
     padding: 20px;
     background: #fff;

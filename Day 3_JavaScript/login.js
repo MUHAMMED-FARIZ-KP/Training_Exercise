@@ -28,6 +28,30 @@ function validatePassword() {
 }
 
 
+var successMessage=document.getElementById('successMessage');
+document.getElementById("loginForm").addEventListener("submit", function (e) {
+    // Prevent form submission
+    e.preventDefault();
+
+    // Perform validation
+    validateEmail();
+    validatePassword();
+
+    // Check if there are any validation errors
+    const emailError = document.getElementById("emailError").textContent;
+    const passwordError = document.getElementById("passwordError").textContent;
+
+    if (!emailError && !passwordError) {
+        successMessage.textContent = 'Form Submitted Successfully.';
+        successMessage.style.display = 'block';
+        successMessage.style.color="Green"
+    } else {
+        emailError.textContent = 'Please enter a valid email address.';
+        alert("Form contains invalid inputs. Please fix them before submitting.");
+    }
+});
+
+
 
 document.getElementById("email").addEventListener("input", (e) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
