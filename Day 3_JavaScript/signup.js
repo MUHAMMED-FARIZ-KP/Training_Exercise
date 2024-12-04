@@ -72,9 +72,16 @@ function validatePassword() {
     const passwordInput = document.getElementById('password');
     const passwordError = document.getElementById('passwordError');
    
+    const strongPasswordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
     if (passwordInput.value.length < 8) {
         passwordError.style.display = 'block';
         passwordError.textContent = 'Password must be at least 8 characters.';
+        passwordInput.style.borderColor = 'red';
+        return false;
+    } else if (!strongPasswordPattern.test(passwordInput.value)) {
+        passwordError.style.display = 'block';
+        passwordError.textContent = 'Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character.';
         passwordInput.style.borderColor = 'red';
         return false;
     } else {
@@ -83,6 +90,7 @@ function validatePassword() {
         return true;
     }
 }
+
 function validateConfirmPassword() {
     const passwordInput = document.getElementById('password');
     const confirmPasswordInput = document.getElementById('confirmPassword');
@@ -104,6 +112,7 @@ function validateConfirmPassword() {
         return true;
     }
 }
+
 
 function validatePhone() {
     const phoneInput = document.getElementById('phone');
@@ -237,13 +246,27 @@ document.getElementById('dob').addEventListener('change', function () {
     let age = today.getFullYear() - dob.getFullYear();
     const m = today.getMonth() - dob.getMonth();
 
-    
     if (m < 0 || (m === 0 && today.getDate() < dob.getDate())) {
         age--;
     }
 
+    
     document.getElementById('age').value = age;
+
+ 
+    if (age < 18) {
+        
+        document.getElementById('dobError').style.display = 'block';
+        document.getElementById('dobError').textContent = 'You must be at least 18 years old.';
+        document.getElementById('dob').style.borderColor = 'red';
+        document.getElementById('age').value = ''; 
+    } else {
+        
+        document.getElementById('dobError').style.display = 'none';
+        document.getElementById('dob').style.borderColor = 'green';
+    }
 });
+
 document.getElementById("phone").addEventListener("input", (e) => {
     e.target.style.borderColor = e.target.value.length == 10 ? "green" : "red";
 });

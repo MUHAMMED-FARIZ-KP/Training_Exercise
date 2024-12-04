@@ -1,6 +1,7 @@
 function validateName() {
     const nameInput = document.getElementById("name");
     const nameError = document.getElementById("nameError");
+    const namePattern = /^[A-Za-z\s]+$/; 
 
     if (nameInput.value.trim().length === 0) {
         nameError.style.display = 'block';
@@ -12,12 +13,18 @@ function validateName() {
         nameError.textContent = 'Name should be 3 or more characters.';
         nameInput.style.borderColor = 'red';
         return false;
+    } else if (!namePattern.test(nameInput.value.trim())) {
+        nameError.style.display = 'block';
+        nameError.textContent = 'Name cannot contain digits or special characters.';
+        nameInput.style.borderColor = 'red';
+        return false;
     } else {
         nameError.style.display = 'none';
         nameInput.style.borderColor = 'green';
         return true;
     }
 }
+
 
 function validateEmail() {
     const emailInput = document.getElementById('email');
