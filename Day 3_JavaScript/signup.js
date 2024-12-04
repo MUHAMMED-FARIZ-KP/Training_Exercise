@@ -1,14 +1,19 @@
-function validateUsername(){
-    const usernameInput=document.getElementById('username')
+function validateUsername() {
+    const usernameInput = document.getElementById('username');
     const usernameError = document.getElementById('usernameError');
-    if(usernameInput.value.length<3){
+    const usernamePattern = /^[A-Za-z0-9]+$/; 
+
+    if (usernameInput.value.length < 3) {
         usernameError.style.display = 'block';
         usernameError.textContent = 'Username must be at least 3 characters.';
         usernameInput.style.borderColor = 'red';
         return false;
-
-    }
-    else {
+    } else if (!usernamePattern.test(usernameInput.value)) {
+        usernameError.style.display = 'block';
+        usernameError.textContent = 'Username can only contain letters and numbers (no spaces or special characters).';
+        usernameInput.style.borderColor = 'red';
+        return false;
+    } else {
         usernameError.style.display = 'none';
         usernameInput.style.borderColor = 'green';
         return true;
@@ -17,39 +22,51 @@ function validateUsername(){
 
 
 
-function validateFirstName(){
-    const firstNameInput=document.getElementById('firstName')
+function validateFirstName() {
+    const firstNameInput = document.getElementById('firstName');
     const firstNameError = document.getElementById('firstNameError');
-    if(firstNameInput.value.length<3){
+    const namePattern = /^[A-Za-z\s]+$/; 
+
+    if (firstNameInput.value.length < 3) {
         firstNameError.style.display = 'block';
         firstNameError.textContent = 'First name must be at least 3 characters.';
         firstNameInput.style.borderColor = 'red';
         return false;
-
-    }
-    else {
-    firstNameError.style.display = 'none';
-    firstNameInput.style.borderColor = 'green';
-    return true;
+    } else if (!namePattern.test(firstNameInput.value)) {
+        firstNameError.style.display = 'block';
+        firstNameError.textContent = 'First name cannot contain numbers or special characters.';
+        firstNameInput.style.borderColor = 'red';
+        return false;
+    } else {
+        firstNameError.style.display = 'none';
+        firstNameInput.style.borderColor = 'green';
+        return true;
     }
 }
 
-function validateLastName(){
-    const lastNameInput=document.getElementById('lastName')
+
+function validateLastName() {
+    const lastNameInput = document.getElementById('lastName');
     const lastNameError = document.getElementById('lastNameError');
-    if(lastNameInput.value.length<3){
+    const namePattern = /^[A-Za-z\s]+$/; 
+
+    if (lastNameInput.value.length < 3) {
         lastNameError.style.display = 'block';
         lastNameError.textContent = 'Last name must be at least 3 characters.';
         lastNameInput.style.borderColor = 'red';
         return false;
-
-    }
-    else {
+    } else if (!namePattern.test(lastNameInput.value)) {
+        lastNameError.style.display = 'block';
+        lastNameError.textContent = 'Last name cannot contain numbers or special characters.';
+        lastNameInput.style.borderColor = 'red';
+        return false;
+    } else {
         lastNameError.style.display = 'none';
         lastNameInput.style.borderColor = 'green';
         return true;
     }
 }
+
 
 function validatePassword() {
     const passwordInput = document.getElementById('password');
@@ -140,7 +157,7 @@ function validateAddress(){
 document.getElementById("form-body").addEventListener("submit", function (e) {
     e.preventDefault();
 
-    // Perform validation
+ 
     const isUsernameValid = validateUsername();
     const isFirstNameValid = validateFirstName();
     const isLastNameValid = validateLastName();
@@ -180,7 +197,7 @@ document.addEventListener("DOMContentLoaded", () => {
         tamilnadu: ["Chennai", "Coimbatore", "Madurai"]
     };
 
-    // Event listener for state dropdown
+    
     stateDropdown.addEventListener("change", () => {
         const selectedState = stateDropdown.value;
         cityDropdown.innerHTML = `<option value="">-- Select City --</option>`; // Clear previous options

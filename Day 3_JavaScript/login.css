@@ -149,7 +149,7 @@ input:focus {
     font-size: 16px;
     background: linear-gradient(45deg, #3498db, #2ecc71);
     color: white;
-    border: none;
+    border: none;   
     border-radius: 5px;
     cursor: pointer;
     transition: background 0.3s ease, transform 0.3s ease;

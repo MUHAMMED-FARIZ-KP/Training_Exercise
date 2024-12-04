@@ -57,11 +57,11 @@ function validateMessage() {
     }
 }
 
-// Main form submission handler
+
 document.getElementById("form-body").addEventListener("submit", function (e) {
     e.preventDefault();
 
-    // Perform validation
+
     const isNameValid = validateName();
     const isEmailValid = validateEmail();
     const isMessageValid = validateMessage();
